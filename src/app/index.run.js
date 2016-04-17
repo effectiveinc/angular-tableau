@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('angularTableau')
+    .module('com.effectiveui.tableauDemoApp')
     .run(runBlock);
 
   /** @ngInject */

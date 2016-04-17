@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('angularTableau', ['toastr']);
+    .module('com.effectiveui.tableauDemoApp', []);
 
 })();

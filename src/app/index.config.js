@@ -6,9 +6,19 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider) {
+  function config($logProvider, tableauProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
+
+    // Configure tableau options
+    tableauProvider.configure({
+      host: 'https://tableau.effectiveui.com/',
+      siteRoot: 'site/demo/'
+    });
+    tableauProvider.setDefaultOptions({
+      hideToolbar: true,
+      hideTabs: true
+    });
   }
 
 })();

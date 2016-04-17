@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="angularTableau">
+<html ng-app="com.effectiveui.tableauDemoApp">
   <head>
     <meta charset="utf-8">
     <title>EffectiveUI Tableau Directive - Demo</title>
@@ -25,9 +25,13 @@
     <![endif]-->
 
     <div class="container" ng-controller="MainController as main">
-
+      <article ng-repeat="viz in main.visualizations">
+        <h1>{{ viz.title }}</h1>
+        <div eui-tableau-viz="{{ viz.path }}" viz-height="200px"></div>
+      </article>
     </div>
 
+    <script src="https://tableau.effectiveui.com/javascripts/api/tableau-2.js"></script>
 
     <!-- build:js(src) scripts/vendor.js -->
     <!-- bower:js -->

@@ -9,8 +9,8 @@
       vm = _$controller_('MainController');
     }));
 
-    it('should have a data array', function() {
-      expect(vm.data).toEqual(jasmine.any(Array));
+    it('should have a visualizations array', function() {
+      expect(vm.visualizations).toEqual(jasmine.any(Array));
     });
 
   });

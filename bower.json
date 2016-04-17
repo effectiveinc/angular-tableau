@@ -1,6 +1,7 @@
 {
   "name": "com.effectiveui.tableau",
   "version": "0.1.0",
+  "main": "./dist/lib/tableau.js",
   "dependencies": {
     "angular": "~1.4.2"
   },

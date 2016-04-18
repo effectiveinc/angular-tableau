@@ -12,7 +12,7 @@
 
     // Configure tableau options
     tableauProvider.configure({
-      host: 'https://tableau.effectiveui.com/',
+      host: 'https://tableau.example.com/',
       siteRoot: 'site/demo/'
     });
     tableauProvider.setDefaultOptions({

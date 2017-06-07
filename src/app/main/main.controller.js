@@ -1,15 +1,24 @@
-(function() {
+(function () {
   'use strict';
 
   angular
-    .module('com.effectiveui.tableauDemoApp')
+    .module('angularjs.tableau.demo')
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController() {
+  function MainController($scope) {
     var vm = this;
 
     vm.visualizations = [];
+
+    $scope.filterObj = {
+      'Msa Id': "2"
+    };
+
+    $scope.myCallback = function (results) {
+      console.log('test callback');
+      console.log(results);
+    }
 
     activate();
 
@@ -17,11 +26,7 @@
       vm.visualizations = [
         {
           title: 'Sample visualization 1',
-          path: 'workbook1/viz1'
-        },
-        {
-          title: 'Sample visualization 2',
-          path: 'workbook2/viz2'
+          path: 'https://public.tableau.com/views/USMassShooting2013-2015TrendsPerState/Story1'
         }
       ]
     }

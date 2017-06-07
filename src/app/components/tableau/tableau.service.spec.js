@@ -5,7 +5,7 @@
     var tableau;
     var tableauAPIMock;
 
-    beforeEach(module('com.effectiveui.tableau'));
+    beforeEach(module('angularjs.tableau'));
     beforeEach(module(function ($provide) {
       // set up a mock $window service with fake tableau API
       tableauAPIMock = {};

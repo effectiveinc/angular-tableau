@@ -4,7 +4,7 @@
   describe('controllers', function(){
     var vm;
 
-    beforeEach(module('com.effectiveui.tableauDemoApp'));
+    beforeEach(module('angularjs.tableau.demo'));
     beforeEach(inject(function(_$controller_) {
       vm = _$controller_('MainController');
     }));

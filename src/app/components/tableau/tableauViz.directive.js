@@ -1,17 +1,19 @@
-(function() {
+(function () {
   'use strict';
 
   angular
-    .module('com.effectiveui.tableau')
+    .module('angularjs.tableau')
     .directive('euiTableauViz', euiTableauViz);
 
   /** @ngInject */
-  function euiTableauViz(tableau) {
+  function euiTableauViz(tableau, $log) {
     var directive = {
       restrict: 'A',
       scope: {
         path: '@euiTableauViz',
-        vizHeight: '@'
+        vizHeight: '@',
+        filters: '=',
+        onParameterChange: '&'
       },
       link: function (scope, element) {
         var viz;
@@ -29,15 +31,25 @@
             return;
           }
 
-          var url = tableau.createUrl(scope.path);
           var options = tableau.createOptions({
             width: '100%',
             height: value
           });
 
+          if (scope.filters) {
+            angular.merge(options, scope.filters);
+          }
+
           // TODO: May want a way to lazy-init visualizations as they are scrolled into view
           // (especially on mobile devices, to avoid overloading the browser)
-          viz = new tableau.api.Viz(element[0], url, options);
+          viz = new tableau.api.Viz(element[0], scope.path, options);
+
+          // Implement callbacks for each event if passed in.
+          if (scope.onParameterChange) {
+            viz.addEventListener('parameterValueChange', function (events) {
+              scope.onParameterChange({ arg1: events });
+            });
+          }
         });
 
         scope.$on('$destroy', function () {

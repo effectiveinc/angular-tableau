@@ -9,7 +9,7 @@
     var tableauMock;
     var vizInstanceMock;
 
-    beforeEach(module('com.effectiveui.tableau'));
+    beforeEach(module('angularjs.tableau'));
     beforeEach(module(function ($provide) {
       // create a mock tableau service
       vizInstanceMock = {
@@ -17,9 +17,6 @@
         dispose: jasmine.createSpy('dispose')
       };
       tableauMock = {
-        createUrl: function (path) {
-          return 'http://test/' + path;
-        },
         createOptions: function (opts) {
           return angular.extend({ test: 'testValue' }, opts);
         },

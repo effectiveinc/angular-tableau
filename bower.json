@@ -1,6 +1,6 @@
 {
-  "name": "angular-tableu",
-  "version": "0.1.0",
+  "name": "angularjs-tableu",
+  "version": "0.1.2",
   "main": "./dist/lib/tableau.js",
   "dependencies": {
     "angular": "~1.4.2"

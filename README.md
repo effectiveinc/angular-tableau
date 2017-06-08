@@ -27,9 +27,11 @@ It's built with [Angular 1.4.x](https://angularjs.org) and [Gulp.js](http://gulp
   `MyWorkbook/MyViz`). Also, you'll need to specify a `viz-height` attribute on the same element, to tell the 
   visualization how tall it should be (its width will behave like a block-level element and fill its container).
   Example:
-
     `<div eui-tableau-viz="MyWorkbook/MyViz" viz-height="200px"></div>`
-   
+    
+5. Events
+
+6. Filters
 
 ## Contributing
 

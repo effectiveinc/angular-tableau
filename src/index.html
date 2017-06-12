@@ -1,8 +1,8 @@
 <!doctype html>
-<html ng-app="com.effectiveui.tableauDemoApp">
+<html ng-app="angularjs.tableau.demo">
   <head>
     <meta charset="utf-8">
-    <title>EffectiveUI Tableau Directive - Demo</title>
+    <title>AngularJS Tableau Directive - Demo</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -27,12 +27,12 @@
     <div class="container" ng-controller="MainController as main">
       <article ng-repeat="viz in main.visualizations">
         <h1>{{ viz.title }}</h1>
-        <div eui-tableau-viz="{{ viz.path }}" viz-height="200px"></div>
+        <div eui-tableau-viz="{{ viz.path }}" on-parameter-change="myCallback(arg1)" filters="filterObj" viz-height="600px"></div>
       </article>
     </div>
 
     <!-- update this to reflect your actual Tableau server -->
-    <script src="https://tableau.example.com/javascripts/api/tableau-2.js"></script>
+    <script src="https://public.tableau.com/javascripts/api/tableau-2.min.js" type="text/javascript"></script>
 
     <!-- build:js(src) scripts/vendor.js -->
     <!-- bower:js -->

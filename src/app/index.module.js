@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('com.effectiveui.tableauDemoApp', ['com.effectiveui.tableau']);
+    .module('angularjs.tableau.demo', ['angularjs.tableau']);
 
 })();

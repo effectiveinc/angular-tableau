@@ -1,8 +1,8 @@
-(function() {
+(function () {
   'use strict';
 
   angular
-    .module('com.effectiveui.tableauDemoApp')
+    .module('angularjs.tableau.demo')
     .config(config);
 
   /** @ngInject */
@@ -11,10 +11,11 @@
     $logProvider.debugEnabled(true);
 
     // Configure tableau options
-    tableauProvider.configure({
-      host: 'https://tableau.example.com/',
-      siteRoot: 'site/demo/'
-    });
+    // tableauProvider.configure({
+    //   host: 'https://public.tableau.com',
+    //   siteRoot: '/views/'
+    // });
+
     tableauProvider.setDefaultOptions({
       hideToolbar: true,
       hideTabs: true

@@ -2,30 +2,16 @@
   'use strict';
 
   angular
-    .module('com.effectiveui.tableau')
+    .module('angularjs.tableau')
     .provider('tableau', tableauProvider);
 
   function tableauProvider() {
-    var config = {
-      host: '',
-      siteRoot: ''
-    };
     var defaults = {};
 
     var service = {
-      createUrl: createUrl,
       createOptions: createOptions,
       api: null
     };
-
-    /**
-     * Configure the service (required)
-     * e.g. tableauProvider.configure({
-     *   host: 'http://www.example.com/',
-     *   siteRoot: 'tableau/whatever/'
-     * });
-     */
-    this.configure = configure;
 
     /**
      * Provide default VizCreateOptions to use when initializing visualizations
@@ -45,16 +31,8 @@
       return service;
     }
 
-    function configure(settings) {
-      angular.extend(config, settings);
-    }
-
     function setDefaultOptions(options) {
       angular.extend(defaults, options);
-    }
-
-    function createUrl(path) {
-      return config.host + config.siteRoot + 'views/' + path;
     }
 
     function createOptions(overrides) {

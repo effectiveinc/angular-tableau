@@ -12,8 +12,18 @@
       scope: {
         path: '@euiTableauViz',
         vizHeight: '@',
-        filters: '=',
-        onParameterChange: '&'
+        filters: '&',
+        onCustomViewLoad: '&',
+        onCustomViewRemove: '&',
+        onCustomViewSave: '&',
+        onCustomViewSetDefault: '&',
+        onFilterChange: '=',
+        onMarksSelection: '&',
+        onParameterChange: '&',
+        onStoryPointSwitch: '&',
+        onTabSwitch: '&',
+        onToolbarStateChange: '&',
+        onVizResize: '&'
       },
       link: function (scope, element) {
         var viz;
@@ -48,11 +58,83 @@
           viz = new tableau.api.Viz(element[0], scope.path, options);
 
           // Implement callbacks for each event if passed in.
-          if (scope.onParameterChange) {
+          if (scope.onCustomViewLoad) {
+            viz.addEventListener('customViewLoad', function (events) {
+              $log.log("Event 'customViewLoad' has fired");
+              scope.onCustomViewLoad({ arg1: events });
+            });
+          }
+
+          if (scope.onCustomViewRemove) {
+            viz.addEventListener('customViewRemove', function (events) {
+              $log.log("Event 'customViewRemove' has fired");
+              scope.onCustomViewRemove({ arg1: events });
+            });
+          }
+
+          if (scope.onCustomViewSave) {
+            viz.addEventListener('customViewSave', function (events) {
+              $log.log("Event 'customViewSave' has fired");
+              scope.onCustomViewSave({ arg1: events });
+            });
+          }
+
+          if (scope.onCustomViewSetDefault) {
+            viz.addEventListener('customViewSetDefault', function (events) {
+              $log.log("Event 'customViewSetDefault' has fired");
+              scope.onCustomViewSetDefault({ arg1: events });
+            });
+          }
+          
+           if (scope.onFilterChange) {
+            viz.addEventListener('filterChange', function (events) {
+              $log.log("Event 'filterChange' has fired");
+              scope.onFilterChange({ arg1: events });
+            });
+          }
+
+           if (scope.onMarksSelection) {
+            viz.addEventListener('marksSelection', function (events) {
+              $log.log("Event 'marksSelection' has fired");
+              scope.onMarksSelection({ arg1: events });
+            });
+          }
+
+           if (scope.onParameterChange) {
             viz.addEventListener('parameterValueChange', function (events) {
+              $log.log("Event 'parameterValueChange' has fired");
               scope.onParameterChange({ arg1: events });
             });
           }
+
+          if (scope.onStoryPointSwitch) {
+            viz.addEventListener('storyPointSwitch', function (events) {
+              $log.log("Event 'storyPointSwitch' has fired");
+              scope.onStoryPointSwitch({ arg1: events });
+            });
+          }
+
+          if (scope.onTabSwitch) {
+            viz.addEventListener('tabSwitch', function (events) {
+              $log.log("Event 'tabSwitch' has fired");
+              scope.onTabSwitch({ arg1: events });
+            });
+          }
+
+          if (scope.onToolbarStateChange) {
+            viz.addEventListener('toolbarStateChange', function (events) {
+              $log.log("Event 'toolbarStateChange' has fired");
+              scope.onToolbarStateChange({ arg1: events });
+            });
+          }
+
+          if (scope.onVizResize) {
+            viz.addEventListener('vizResize', function (events) {
+              $log.log("Event 'vizResize' has fired");
+              scope.onVizResize({ arg1: events });
+            });
+          }
+
         });
 
         scope.$on('$destroy', function () {
